@@ -1,0 +1,25 @@
+@import "../../@shared/components/sidebar/sidebar.theme.scss";
+@import "../../@core/layout/components/settings-panel/settings.theme.scss";
+@import "../..//@features/tv-station/tv-station.theme.scss";
+@import "../../@features/show/show.theme.scss";
+@import "../../@features/show/components/show-card/show-card.theme.scss";
+@import "../../@features/show/components/show-details/show-details.theme.scss";
+
+@mixin broadcast-core-theme($theme) {
+
+  // Theming for Broadcast core styles
+  @include colors-theme($theme);
+  @include typography-theme($theme);
+  @include material-theme($theme);
+  @include page-layouts-theme($theme);
+
+  // Theming for Broadcast components
+  @include sidebar-theme($theme);
+  @include settings-theme($theme);
+  @include tvstation-theme($theme);
+  @include show-theme($theme);
+  @include show-card-theme($theme);
+  @include show-details-theme($theme);
+
+  // Theming for 3rd party components
+}

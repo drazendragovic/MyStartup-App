@@ -1,0 +1,90 @@
+<ng-container [formGroup]="registerInfoForm">
+	<div id="registerForm" fxLayoutGap="28px">
+		<mat-form-field appearance="outline">
+			<mat-label>Name</mat-label>
+			<input matInput formControlName="name" />
+			<mat-icon matSuffix class="secondary-text">person</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('name').hasError('required')"
+			>
+				Name is required
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Surname</mat-label>
+			<input matInput formControlName="surname" />
+			<mat-icon matSuffix class="secondary-text">person</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('surname').hasError('required')"
+			>
+				Surname is required
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Email</mat-label>
+			<input matInput formControlName="email" />
+			<mat-icon matSuffix class="secondary-text">mail</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('email').hasError('required')"
+			>
+				Email is required
+			</mat-error>
+			<mat-error
+				*ngIf="!registerInfoForm.get('email').hasError('required') &&
+        registerInfoForm.get('email').hasError('pattern')"
+			>
+				Please enter a valid email address
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Username</mat-label>
+			<input matInput formControlName="username" />
+			<mat-icon matSuffix class="secondary-text">perm_identity</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('username').hasError('required')"
+			>
+				Username is required
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Password</mat-label>
+			<input matInput type="password" formControlName="password" />
+			<mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('password').hasError('required')"
+			>
+				Password is required
+			</mat-error>
+			<mat-error
+				*ngIf="registerInfoForm.get('password').hasError('minlength')"
+			>
+				Password minimal length is 6 characters
+			</mat-error>
+			<mat-error
+				*ngIf="registerInfoForm.get('password').hasError('maxlength')"
+			>
+				Password maximal length is 13 characters
+			</mat-error>
+		</mat-form-field>
+
+		<mat-form-field appearance="outline">
+			<mat-label>Confirm Password</mat-label>
+			<input matInput type="password" formControlName="confirmPassword" />
+			<mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+			<mat-error
+				*ngIf="registerInfoForm.get('confirmPassword').hasError('required')"
+			>
+				Confirm Password is required
+			</mat-error>
+			<mat-error
+      *ngIf="!isPasswordSame"
+			>
+				Password mismatch
+			</mat-error>
+		</mat-form-field>
+	</div>
+</ng-container>

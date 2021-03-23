@@ -1,0 +1,18 @@
+@mixin show-details-theme($theme) {
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
+
+  show-details {
+
+    .show-title .title {
+      color: mat-color($broadcast-orange, 900);
+    }
+    .show-date i,
+    .show-duration i {
+      color: mat-color($broadcast-orange, 900);
+    }
+  }
+
+}

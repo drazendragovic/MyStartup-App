@@ -1,0 +1,19 @@
+@mixin tvstation-theme($theme) {
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
+
+  tv-station {
+
+    tvstation-shows-list {
+
+      h2,
+      .card-title {
+        color: mat-color($broadcast-orange, 900);
+      }
+
+
+    }
+  }
+}

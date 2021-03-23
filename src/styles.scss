@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+// Import Broadcast core library
+@import "./app/@shared/scss/core.scss";
+
+// Import app.theme.scss
+@import "app/app.theme";
+

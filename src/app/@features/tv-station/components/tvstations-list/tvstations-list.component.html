@@ -1,0 +1,24 @@
+<div id="tvstation" class="page-layout simple">
+	<div class="content">
+		<div class="center">
+			<div class="content">
+				<div class="station-list pt-24" fxLayout="row" fxLayoutAlign="center center">
+					<div *ngFor="let station of tvStations" class="station">
+						<a
+							href="#"
+							(click)="getTvStationShows(station.tvStationId!)"
+						>
+							<img
+								src="{{tvStationLogoUrl}}{{station.logoUrl}}"
+								alt="{{station.name}}"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="content mt-16">
+				<tvstation-shows-list [shows]="tvShows" [genres]="showGenres"></tvstation-shows-list>
+			</div>
+		</div>
+	</div>
+</div>

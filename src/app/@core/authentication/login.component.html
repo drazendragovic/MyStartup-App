@@ -1,0 +1,61 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">{{title}}</h4>
+	<button
+		type="button"
+		class="close pull-right"
+		aria-label="Close"
+		(click)="bsModalRef.hide()"
+	>
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<div class="mt-12" fxLayout="column" fxLayoutAlign="start">
+		<form
+			[formGroup]="nestedForm"
+			id="nestedForm"
+			(ngSubmit)="onLoginClick(mode)"
+		>
+			<login-form
+				*ngIf="mode == 'login'"
+				formControlName="loginInfo"
+			></login-form>
+			<register-form
+				*ngIf="mode == 'register'"
+				formControlName="registerInfo"
+			></register-form>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+	<div
+		fxLayout="row"
+		fxLayoutAlign="space-evenly center"
+	>
+		<button
+    *ngIf="mode == 'login'"
+			[disabled]="!nestedForm.valid"
+			type="submit"
+			class="mat-raised-button mat-accent"
+			form="nestedForm"
+		>
+			LOGIN
+		</button>
+		<button
+      *ngIf="mode == 'register'"
+			[disabled]="!nestedForm.valid"
+			type="submit"
+			class="mat-raised-button mat-accent"
+			form="nestedForm"
+		>
+			REGISTER
+		</button>
+		<button
+			type="button"
+			class="mat-raised-button mat-primary"
+			(click)="bsModalRef.hide()"
+		>
+			CANCEL
+		</button>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+<div class="modal-header">
+	<h4 class="modal-title pull-left">Show info</h4>
+	<button
+		type="button"
+		class="close pull-right"
+		aria-label="Close"
+		(click)="_bsModalRef.hide()"
+	>
+		<span aria-hidden="true">&times;</span>
+	</button>
+</div>
+<div class="modal-body">
+	<div class="show-body" fxLayout="column" fxLayoutAlign="start">
+		<div class="show-image" fxLayout="row" fxLayoutAlign="start">
+			<img [src]="photoPath + show.coverPicture" alt="{{show.name}}" />
+		</div>
+		<div class="show-title pr-20 pl-20" fxLayout="column" fxLayoutAlign="start">
+			<div class="title" fxLayout="row" fxLayoutAlign="start">
+				<h2>{{ show.name }}</h2>
+			</div>
+			<div fxLayout="column" fxLayoutAlign="start">
+				<div class="description-title" fxLayout="row" fxLayoutAlign="start">
+					<span>Description:</span>
+				</div>
+				<div class="" fxLayout="row" fxLayoutAlign="start">
+					<p class="show-description mb-20">{{ show.description }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div fxLayout="column" fxLayoutAlign="start stretch">
+		<div class="show-icons" fxLayout="row" fxLayoutAlign="space-between center">
+			<span *ngIf="userLogged()" class="show-icon"><i class="material-icons">check_circle</i></span>
+      <span class="station-icon pb-12 pr-8">{{show.tvStation}}</span>
+		</div>
+    <div class="content" fxLayout="column" fxLayoutAlign="start none" >
+    <div class="card-text mt-0 mb-8" fxLayout="row" fxLayoutAlign="space-between center">
+      <span class="show-date"><i class="material-icons mr-4">today</i>{{show.startTime | date:'medium'}}</span>
+      <span class="show-duration"><i class="material-icons mr-4">av_timer</i>{{show.duration}}</span>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <ngx-material-rating *ngIf="userLogged()" [color]="color" [disabled]="disabled" [dense]="dense"
+      [readonly]="readonly" [max]="max">
+    </ngx-material-rating>
+    <span>Ratings: <span class="show-ratings">{{show.usersRating}}</span></span>
+    </div>
+  </div>
+	</div>
+</div>

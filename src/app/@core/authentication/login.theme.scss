@@ -1,0 +1,21 @@
+@mixin login-theme($theme) {
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
+
+  .modal-content {
+    @if ($is-dark) {
+      background: mat-color($broadcast-gray, 900);
+    }
+
+    @else {
+      background: mat-color($broadcast-gray, 200);
+    }
+  }
+
+  .close {
+    color: map-get($foreground, text);
+  }
+
+}

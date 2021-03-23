@@ -1,0 +1,31 @@
+@import "../../../../@shared/scss/broadcast.scss";
+
+.station-list {
+  flex-wrap: wrap;
+
+  .station {
+    padding: 24px;
+
+    img {
+      width: 120px;
+
+      @include media-breakpoint('lt-sm') {
+        width: 70px;
+      }
+
+      @include media-breakpoint('gt-md') {
+        width: 90px;
+      }
+
+    }
+
+    @include media-breakpoint('lt-sm') {
+      padding: 4px;
+    }
+
+    @include media-breakpoint('gt-md') {
+      padding: 12px;
+    }
+  }
+
+}

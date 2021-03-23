@@ -1,0 +1,16 @@
+<gallery id="homeCarousel"
+         [itemTemplate]="itemTemplate"></gallery>
+
+<!-- Add custom template to image items -->
+
+<ng-template #itemTemplate
+             let-index="index"
+             let-type="type"
+             let-data="data"
+             let-currIndex="currIndex">
+  <span *ngIf="type === 'image' && index === currIndex" class="item-text" [@slideAnimation]>
+    <h2>{{data?.title}}</h2>
+    <p>Neki opis o filmu ili najava za film na rasporedu</p>
+    <button>Pogledaj</button>
+  </span>
+</ng-template>

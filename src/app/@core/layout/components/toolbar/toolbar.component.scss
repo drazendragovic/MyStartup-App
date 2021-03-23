@@ -1,0 +1,64 @@
+@import "../../../../@shared/scss/broadcast.scss";
+
+app-toolbar {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 4;
+
+    .mat-icon-button {
+      width: unset;
+    }
+
+    &.below {
+        z-index: 2;
+    }
+
+    .mat-toolbar {
+        position: relative;
+        background: inherit !important;
+        color: inherit !important;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        .logo-icon {
+            width: 100px;
+        }
+    }
+
+    .user-button,
+    .language-button,
+    .chat-panel-toggle-button,
+    .quick-panel-toggle-button,
+    .login-button,
+    .register-button {
+        min-width: 64px;
+        height: 64px;
+
+        @include media-breakpoint('xs') {
+            height: 56px;
+        }
+
+        .link-title {
+          font-size: 13px;;
+          font-weight: 200;
+        }
+    }
+
+    .navbar-toggle-button {
+        min-width: 56px;
+        height: 56px;
+    }
+
+    .toolbar-separator {
+        height: 64px;
+        width: 1px;
+
+        @include media-breakpoint('xs') {
+            height: 56px;
+        }
+    }
+}

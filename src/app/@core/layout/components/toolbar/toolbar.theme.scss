@@ -1,0 +1,25 @@
+@mixin toolbar-theme($theme) {
+
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark: map-get($theme, is-dark);
+
+  app-toolbar {
+
+    .toolbar-separator {
+      @if ($is-dark) {
+        background: mat-color($broadcast-gray, 800);
+      }
+
+      @else {
+        background: mat-color($broadcast-gray, 500);
+      }
+    }
+
+    .login-button:hover .secondary-text,
+    .register-button:hover .secondary-text {
+      color: mat-color($broadcast-orange, 900);
+    }
+
+  }
+}

@@ -1,0 +1,42 @@
+// This file meant to be imported only once! Use broadcast.scss to access
+// to the core Broadcast and Angular Material mixins
+.material {
+  @import "~ng-snotify/styles/material";
+}
+.simple {
+  @import "~ng-snotify/styles/simple";
+}
+.dark {
+  @import "~ng-snotify/styles/dark";
+}
+
+// Perfect scrollbar
+@import '~perfect-scrollbar/css/perfect-scrollbar';
+
+// Broadcast
+@import "broadcast";
+
+// Theme
+@import "theme";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Partials
+@import "partials/normalize";
+@import "partials/scrollbars";
+@import "partials/general";
+@import "partials/colors";
+@import "partials/typography";
+@import "partials/material";
+@import "partials/angular-material";
+@import "partials/icons";
+@import "partials/page-layouts";
+@import "partials/navigation";
+@import "partials/modals";
+@import "partials/spinner";
+@import "partials/forms";
+// Plugins
+@import "partials/plugins/plugins";

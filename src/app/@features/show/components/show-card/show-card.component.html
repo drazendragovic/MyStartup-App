@@ -1,0 +1,63 @@
+<div
+	class="tv-show-list pl-96 pr-96"
+	*ngFor="let genre of genres"
+	fxLayout="column"
+	fxLayoutAlign="start none"
+>
+	<h2 fxLayout="row" fxfill fxLayoutAlign="start center">{{genre.name}}</h2>
+	<div
+		fxLayout="row"
+		fxfill
+		fxLayoutAlign="start center"
+		class="content show-list"
+	>
+		<mat-card
+			class="card m-12"
+			*ngFor="let show of shows | genrefilter: genre.name"
+		>
+			<img
+				mat-card-image
+				[src]="photoUrl + show.coverPicture"
+				alt="{{show.name}}"
+			/>
+			<div class="icon-wrapper pt-12 pr-8" fxLayout="column" fxLayoutAlign="space-between end">
+				<div class="show-icons" fxLayout="row" fxLayoutAlign="end start">
+					<span class="show-icon" (click)="openShowDetails(show)"><i class="material-icons">info</i></span>
+					<span *ngIf="userLogged()" class="show-icon"><i class="material-icons">check_circle</i></span>
+				</div>
+        <div class="tvstation-logo" fxLayout="row" fxLayoutAlign="end start">
+          <span class="station-icon pb-12 pr-8">{{show.tvStation}}</span>
+        </div>
+			</div>
+			<mat-card-content>
+				<div
+					class="content"
+					fxLayout="column"
+					fxLayoutAlign="start none"
+				>
+					<h2
+						class="card-title mt-0 mb-8"
+						fxLayout="row"
+						fxLayoutAlign="start center"
+					>
+						{{show.name}}
+					</h2>
+					<p
+						class="card-text mt-0 mb-8"
+						fxLayout="row"
+						fxLayoutAlign="space-between center"
+					>
+						<span class="datum"
+							><i class="material-icons mr-4">today</i
+							>{{show.startTime | date:'medium'}}</span
+						>
+						<span class="datum"
+							><i class="material-icons mr-4">av_timer</i
+							>{{show.duration}}</span
+						>
+					</p>
+				</div>
+			</mat-card-content>
+		</mat-card>
+	</div>
+</div>
